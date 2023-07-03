@@ -3,6 +3,19 @@
     padding: 2rem 1rem;
 }
 
+.weather__info h1,
+.weather__info h2, 
+.weather__info h3 {
+    font-weight: normal;
+}
+
+.desc {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 22px;
+    font-style: italic;
+}
+
 /* 
 ===================
 Media Queries

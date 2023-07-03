@@ -1,0 +1,23 @@
+.clock {
+    position: absolute;
+    inset: 0.5rem 1rem auto auto;
+}
+
+.clock p {
+    color: rgba(255, 255, 255, 0.781);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+/* 
+==============
+Media Queries
+=======
+*/
+
+@media (min-width: 768px) {
+    .clock p {
+        font-size: 1rem;
+    }
+}
