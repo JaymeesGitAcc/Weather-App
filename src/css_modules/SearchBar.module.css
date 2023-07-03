@@ -1,0 +1,31 @@
+.search__form {
+    display: grid;
+    grid-template-columns: 3.2fr 1fr;
+}
+
+.search__form input {
+    padding: 0.6rem 0.8rem;
+    border: none; 
+    outline: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 1px solid;
+}
+
+.search__form button {
+    border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+/* 
+=========================
+Media Queries
+============
+*/
+
+@media (min-width: 768px) {
+    .search__form {
+        width: 60%;
+    }
+}

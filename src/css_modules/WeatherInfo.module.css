@@ -1,0 +1,18 @@
+.weather__info {
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+/* 
+===================
+Media Queries
+=========
+*/
+
+@media (min-width: 768px) {
+    .info__container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}

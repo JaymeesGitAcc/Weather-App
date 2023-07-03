@@ -1,0 +1,47 @@
+.weather__stats {
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.stats__data {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stats__data h3, 
+.stats__data p {
+    flex: 1;
+}
+
+.stats__data span {
+    font-size: 14px;
+}
+
+.stats__data p {
+    font-size: 18px;
+}
+
+/* 
+========================
+Media Queries
+===========
+*/
+
+@media (min-width: 600px) {
+
+    .weather__stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .weather__stats h3, 
+    .weather__stats p {
+        text-align: center;
+    }
+
+    .stats__data {
+        display: block;
+    }
+}

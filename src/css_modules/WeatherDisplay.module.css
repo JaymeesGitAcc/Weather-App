@@ -1,0 +1,12 @@
+.weather__display {
+    width: 95%;
+    max-width: 850px;
+    margin: 4rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: rgba(14, 157, 205, 0.644);
+    color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.24);
+}
+
+/* #0e9dcd; */
