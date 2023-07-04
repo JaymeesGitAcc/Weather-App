@@ -44,7 +44,6 @@ const WeatherDisplay = () => {
         <section className={styles.weather__display}>
             <Clock/>
             <SearchBar setCity={setCity} />
-
             {
                 !error ?
                     <WeatherContext.Provider value={weatherData}>
