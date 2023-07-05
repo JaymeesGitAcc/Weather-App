@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import styles from '../css_modules/WeatherStats.module.css';
 import WeatherContext from '../WeatherContext';
 
-const WeatherStats = ({error}) => {
+const WeatherStats = ({ error }) => {
 
     const stats = useContext(WeatherContext);
 
@@ -19,7 +19,7 @@ const WeatherStats = ({error}) => {
                 </div>
                 <div className={styles.stats__data}>
                     <h3>Visibility</h3>
-                    <p>{((stats.visibility)/1000).toFixed(2)}&nbsp;<span>km</span></p>
+                    <p>{((stats.visibility) / 1000).toFixed(2)}&nbsp;<span>km</span></p>
                 </div>
                 <div className={styles.stats__data}>
                     <h3>Pressure</h3>

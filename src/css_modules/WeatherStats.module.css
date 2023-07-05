@@ -49,4 +49,8 @@ Media Queries
     .stats__data {
         display: block;
     }
+
+    .stats__data + .stats__data {
+        border-left: 1px solid #ffffff83;
+    }
 }

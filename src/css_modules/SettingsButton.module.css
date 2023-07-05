@@ -1,0 +1,9 @@
+.settings__btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    padding: .2rem .5rem;
+    border: none;
+    z-index: 3;
+}

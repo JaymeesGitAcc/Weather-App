@@ -1,0 +1,35 @@
+.settings__menu {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.342);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    transition: 0.4s ease-in-out;
+    transform: translateX(100%);
+
+    /*  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    /*  */
+}
+
+.show__menu {
+    transform: translateX(0);
+}
+
+/* 
+===================
+Media queries
+=========
+*/
+@media (min-width: 768px) {
+    .settings__menu {
+        width: 500px;
+    }
+}

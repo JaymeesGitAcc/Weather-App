@@ -9,7 +9,16 @@
     outline: none;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    /* border: 1px solid; */
+    background-color: rgba(255, 255, 255, 0.39);
+}
+
+.search__form input::placeholder{
+    color: rgba(255, 255, 255, 0.555);
+}
+
+.search__form input {
+    color: #222;
+    letter-spacing: 2px;
 }
 
 .search__form button {

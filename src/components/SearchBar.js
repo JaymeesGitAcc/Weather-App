@@ -7,7 +7,8 @@ const SearchBar = ({ setCity }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        setCity(inputValue);
+        if (!inputValue) alert("Please enter a value");
+        else setCity(inputValue);
         setInputValue('');
     }
 

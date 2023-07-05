@@ -12,14 +12,38 @@ const WeatherDisplay = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState(false);
 
-    async function fetchData(cityname) {
-        if(cityname) {
-            const apiKey = '629cae91753c6dfa85aded52928beddb';
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${apiKey}`;
-    
+    // async function fetchData(cityname) {
+    //     if(cityname) {
+    //         const apiKey = '629cae91753c6dfa85aded52928beddb';
+    //         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${apiKey}`;
+
+    //         try {
+    //             const data = await fetch(url);
+
+    //             if (!data.ok) {
+    //                 setError(true);
+    //             }
+    //             else {
+    //                 const res = await data.json();
+    //                 setWeatherData(res);
+    //                 setError(false);
+    //             }
+
+    //         } catch (err) {
+    //             setError(true);
+    //         }
+    //     }
+
+    // }
+
+    useEffect(() => {
+        const apiKey = '629cae91753c6dfa85aded52928beddb';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+        const api = async () => {
             try {
                 const data = await fetch(url);
-    
+
                 if (!data.ok) {
                     setError(true);
                 }
@@ -28,21 +52,18 @@ const WeatherDisplay = () => {
                     setWeatherData(res);
                     setError(false);
                 }
-    
+
             } catch (err) {
                 setError(true);
             }
-        }
-            
-    }
 
-    useEffect(() => {
-            fetchData(city);
+        }
+        api(city)
     }, [city]);
 
     return (
         <section className={styles.weather__display}>
-            <Clock/>
+            <Clock />
             <SearchBar setCity={setCity} />
             {
                 !error ?
@@ -50,7 +71,7 @@ const WeatherDisplay = () => {
                         <WeatherInfo />
                         <WeatherStats />
                     </WeatherContext.Provider>
-                    : <div style={{marginTop: "1rem"}}>Weather Info not available for the city "{city}"</div>
+                    : <div style={{ marginTop: "1rem" }}>Weather Info not available for the city "{city}"</div>
             }
 
         </section>
