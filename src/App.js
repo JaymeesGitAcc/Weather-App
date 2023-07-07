@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SettingsButton from "./components/SettingsButton";
 import SettingsMenu from "./components/SettingsMenu";
 import WeatherDisplay from "./components/WeatherDisplay";
@@ -9,10 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <SettingsButton
-        toggleMenu={toggleMenu}
-        setToggleMenu={setToggleMenu} />
-
+      <SettingsButton toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
       <SettingsMenu toggleMenu={toggleMenu} />
       <WeatherDisplay />
     </div>

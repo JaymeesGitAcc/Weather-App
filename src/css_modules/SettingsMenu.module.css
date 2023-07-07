@@ -10,17 +10,34 @@
     backdrop-filter: blur(8px);
     transition: 0.4s ease-in-out;
     transform: translateX(100%);
+}
 
-    /*  */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    /*  */
+.settings__menu button {
+    cursor: pointer;
+    border: none;
 }
 
 .show__menu {
     transform: translateX(0);
+}
+
+.default__city {
+    margin-top: 4rem;
+}
+
+.units__setting button {
+    margin-left: 1rem;
+    background: transparent;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.settings__menu .selected {
+    background-color: #fff;
+    color: #222;
 }
 
 /* 
@@ -30,6 +47,6 @@ Media queries
 */
 @media (min-width: 768px) {
     .settings__menu {
-        width: 500px;
+        width: 40%;
     }
 }

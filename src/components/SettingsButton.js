@@ -1,17 +1,24 @@
+import { useState } from 'react';
 import styles from '../css_modules/SettingsButton.module.css';
 
 const SettingsButton = ({ toggleMenu, setToggleMenu }) => {
 
+    const [buttonState, setButtonState] = useState(false);
+
     function handleMenu() {
-        if (!toggleMenu)
-            setToggleMenu(true);
-        else
-            setToggleMenu(false);
+        setToggleMenu(toggleValue => !toggleValue);
+        setButtonState(stateValue => !stateValue);
     }
 
     return (
-        <button className={styles.settings__btn}
-            onClick={handleMenu}>Settings</button>
+        <button className={`${styles.settings__btn} ${buttonState ? styles.transform : ''}`}
+            onClick={handleMenu}>
+            <div className={`${styles.hamBtn}`}>
+                <div className={`${styles.line} ${styles.line1}`}></div>
+                <div className={`${styles.line} ${styles.line2}`}></div>
+                <div className={`${styles.line} ${styles.line3}`}></div>
+            </div>
+        </button>
     );
 }
 

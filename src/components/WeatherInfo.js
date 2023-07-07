@@ -8,7 +8,7 @@ const WeatherInfo = () => {
 
     return (
         data && (<main className={styles.weather__info}>
-            <h2>{data.name}</h2>
+            <h2>{`${data.name}, ${data.sys.country}`}</h2>
 
             <div className={styles.info__container}>
                 <div className={styles.weather__image}>

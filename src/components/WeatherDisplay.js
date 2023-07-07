@@ -8,33 +8,15 @@ import Clock from './Clock';
 
 const WeatherDisplay = () => {
 
-    const [city, setCity] = useState('Gorakhpur');
+    const [city, setCity] = useState(() => {
+        const defaultCity = localStorage.getItem('defaultCity')
+            ? JSON.parse(localStorage.getItem('defaultCity'))
+            : 'Gorakhpur';
+        return defaultCity ? defaultCity : 'Gorakhpur';
+    });
+
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState(false);
-
-    // async function fetchData(cityname) {
-    //     if(cityname) {
-    //         const apiKey = '629cae91753c6dfa85aded52928beddb';
-    //         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${apiKey}`;
-
-    //         try {
-    //             const data = await fetch(url);
-
-    //             if (!data.ok) {
-    //                 setError(true);
-    //             }
-    //             else {
-    //                 const res = await data.json();
-    //                 setWeatherData(res);
-    //                 setError(false);
-    //             }
-
-    //         } catch (err) {
-    //             setError(true);
-    //         }
-    //     }
-
-    // }
 
     useEffect(() => {
         const apiKey = '629cae91753c6dfa85aded52928beddb';
@@ -56,9 +38,8 @@ const WeatherDisplay = () => {
             } catch (err) {
                 setError(true);
             }
-
         }
-        api(city)
+        api(city);
     }, [city]);
 
     return (
