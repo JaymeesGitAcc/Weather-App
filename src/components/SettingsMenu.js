@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import styles from '../css_modules/SettingsMenu.module.css';
 
-const SettingsMenu = ({ toggleMenu }) => {
+const SettingsMenu = ({ toggleMenu, setUnits }) => {
 
     const [defaultCity, setDefaultCity] = useState('');
 
@@ -31,19 +31,23 @@ const SettingsMenu = ({ toggleMenu }) => {
         return settings;
     }
 
-    function saveSettings() {
+    function saveAsDefaultCity() {
+        if (defaultCity)
+            localStorage.setItem('defaultCity', JSON.stringify(defaultCity));
+        setDefaultCity('');
+    }
 
+    function saveSettings() {
         const updatedSettings = {
             temperature: tempUnit,
             wind: windUnit,
             visibility: visibilityUnit
         };
-        if (defaultCity)
-            localStorage.setItem('defaultCity', JSON.stringify(defaultCity));
         localStorage.setItem('userSettings', JSON.stringify(updatedSettings));
-        setDefaultCity('');
-        // setToggleMenu(false);
+        saveAsDefaultCity();
+        setUnits(updatedSettings);
     }
+
     return (
         <div className={`${styles.settings__menu} ${toggleMenu ? styles.show__menu : ''}`}>
 
@@ -51,7 +55,9 @@ const SettingsMenu = ({ toggleMenu }) => {
                 <input type="text"
                     value={defaultCity}
                     onChange={e => setDefaultCity(e.target.value)}
-                    placeholder='set default city' />
+                    placeholder='set default city'
+                />
+                <button onClick={saveAsDefaultCity}>Save as default</button>
             </div>
 
             <section className={styles.units__setting}>
