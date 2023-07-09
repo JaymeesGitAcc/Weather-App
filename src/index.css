@@ -21,3 +21,15 @@ img {
     display: block;
     max-width: 100%;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.loader img {
+   width: 40px;
+   height: 40px;
+}   

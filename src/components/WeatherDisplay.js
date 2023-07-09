@@ -5,6 +5,7 @@ import WeatherInfo from './WeatherInfo';
 import WeatherStats from './WeatherStats';
 import WeatherContext from '../WeatherContext';
 import Clock from './Clock';
+const spinner = require('../images/spinner.gif');
 
 const WeatherDisplay = () => {
 
@@ -42,21 +43,27 @@ const WeatherDisplay = () => {
         api(city);
     }, [city]);
 
-    return (
-        <section className={styles.weather__display}>
-            <Clock />
-            <SearchBar setCity={setCity} />
-            {
-                !error ?
-                    <WeatherContext.Provider value={weatherData}>
-                        <WeatherInfo />
-                        <WeatherStats />
-                    </WeatherContext.Provider>
-                    : <div style={{ marginTop: "1rem" }}>Weather Info not available for the city "{city}"</div>
-            }
 
-        </section>
-    );
+    return <section className={styles.weather__display}>
+        <Clock />
+        <SearchBar setCity={setCity} />
+        {
+            !error ?
+                <WeatherContext.Provider value={weatherData}>
+                    {
+                        weatherData ?
+                            <>
+                                <WeatherInfo />
+                                <WeatherStats />
+                            </> : 
+                            <div className='loader'>
+                                <img src={spinner} alt="spinner" />
+                            </div>
+                    }
+                </WeatherContext.Provider> :
+                <div className='error'>Weather info not available for the city <b>{city}</b></div>
+        }
+    </section>
 }
 
 export default WeatherDisplay;

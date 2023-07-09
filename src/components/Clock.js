@@ -37,7 +37,7 @@ const Clock = () => {
 
     return ( 
         <div className={styles.clock}>
-           <p>{dayName},&nbsp;{currentTime}</p>
+           <p>{dayName}&nbsp;{currentTime}</p>
         </div>
      );
 }
