@@ -8,8 +8,9 @@
     color: #fff;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    background-color: dodgerblue;
-    background-image: linear-gradient(to right,#af5f6f, #64b2ff);
+    background-image: linear-gradient(to bottom right, #5761B2, #1FC5A8);  
+           
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 /* #0e9dcd; */

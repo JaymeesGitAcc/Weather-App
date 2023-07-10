@@ -1,9 +1,10 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import styles from '../css_modules/SettingsMenu.module.css';
 
 const SettingsMenu = ({ toggleMenu, setUnits }) => {
 
     const [defaultCity, setDefaultCity] = useState('');
+    const [saveTitle, setSaveTitle] = useState('Save Preferences');
 
     const [tempUnit, setTempUnit] = useState(() => {
         return getSettingsFromLS()
@@ -14,13 +15,13 @@ const SettingsMenu = ({ toggleMenu, setUnits }) => {
     const [windUnit, setWindUnit] = useState(() => {
         return getSettingsFromLS()
             ? getSettingsFromLS().wind
-            : 'km/hr';
+            : 'm/s';
     });
 
     const [visibilityUnit, setVisibilityUnit] = useState(() => {
         return getSettingsFromLS()
             ? getSettingsFromLS().visibility
-            : 'km';
+            : 'm';
     });
 
     function getSettingsFromLS() {
@@ -46,6 +47,12 @@ const SettingsMenu = ({ toggleMenu, setUnits }) => {
         localStorage.setItem('userSettings', JSON.stringify(updatedSettings));
         saveAsDefaultCity();
         setUnits(updatedSettings);
+
+        setSaveTitle('Preferences Saved!');
+
+        setTimeout(() => {
+            setSaveTitle('Save Preferences');
+        }, 1500);
     }
 
     return (
@@ -55,15 +62,15 @@ const SettingsMenu = ({ toggleMenu, setUnits }) => {
                 <input type="text"
                     value={defaultCity}
                     onChange={e => setDefaultCity(e.target.value)}
-                    placeholder='set default city'
+                    placeholder='set default city...'
                 />
                 <button onClick={saveAsDefaultCity}>Save as default</button>
             </div>
 
             <section className={styles.units__setting}>
 
-                <div className={`${styles.tempSetting} ${styles.row}`}>
-                    <p>Temperature:</p>
+                <div className={styles.row}>
+                    <p className={styles.unit__title}>Temperature:</p>
                     <div>
                         <button
                             className={tempUnit === 'celsius' ? `${styles.selected}` : ``}
@@ -75,32 +82,43 @@ const SettingsMenu = ({ toggleMenu, setUnits }) => {
                 </div>
 
                 <div className={styles.row}>
-                    <p>Wind:</p>
+                    <p className={styles.unit__title}>Wind:</p>
                     <div>
                         <button
-                            className={windUnit === 'km/hr' ? `${styles.selected}` : ``}
-                            onClick={() => setWindUnit('km/hr')}>km/hr</button>
-                        <button
                             className={windUnit === 'm/s' ? `${styles.selected}` : ``}
-                            onClick={() => setWindUnit('m/s')}>m/s</button>
+                            onClick={() => setWindUnit('m/s')}>
+                            m/s
+                        </button>
+
+                        <button
+                            className={windUnit === 'km/hr' ? `${styles.selected}` : ``}
+                            onClick={() => setWindUnit('km/hr')}>
+                            km/hr
+                        </button>
                     </div>
                 </div>
 
                 <div className={styles.row}>
-                    <p>Visibility:</p>
+                    <p className={styles.unit__title}>Visibility:</p>
                     <div>
                         <button
-                            className={visibilityUnit === 'km' ? `${styles.selected}` : ``}
-                            onClick={() => setVisibilityUnit('km')}>km</button>
-                        <button
                             className={visibilityUnit === 'm' ? `${styles.selected}` : ``}
-                            onClick={() => setVisibilityUnit('m')}>m</button>
+                            onClick={() => setVisibilityUnit('m')}>
+                            m
+                        </button>
+
+                        <button
+                            className={visibilityUnit === 'km' ? `${styles.selected}` : ``}
+                            onClick={() => setVisibilityUnit('km')}>
+                            km
+                        </button>
                     </div>
                 </div>
             </section>
 
-            <div className={styles.actionBtns}>
-                <button onClick={saveSettings}>Save Preferences</button>
+            <div className={styles.actionBtn}>
+                <button className={saveTitle === "Preferences Saved!" ? `${styles.clicked}` : ``}
+                onClick={saveSettings}>{saveTitle}</button>
             </div>
         </div>
     );

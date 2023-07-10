@@ -10,11 +10,11 @@
 }
 
 body {
-    background-color: rgba(30, 143, 255, 0.274);
     min-height: 100vh;
     letter-spacing: 2px;
     line-height: 1.6;
     overflow-x: hidden;
+    background-color: #ebe3e3;
 }
 
 img {
