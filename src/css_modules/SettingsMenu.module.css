@@ -33,10 +33,12 @@
     outline: none;
     padding: 0.2rem 1rem;
     background-color: transparent;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     width: 80%;
     color: #fff;
-    border: 1px solid #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }   
 
 .default__city input::placeholder {
@@ -57,10 +59,12 @@
     font-size: 0.75rem;
     letter-spacing: 1px;
     padding: 0.2rem 0.5rem;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .units__setting {
-    padding: 1rem;
+    margin-top: 2rem;
 }
 
 .units__setting .unit__title {
@@ -68,25 +72,18 @@
     color: #fff;
 }
 
-.unit__title::after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 50%;
-    border-radius: 4px;
-    background-color: #222;
-}
-
 .units__setting button {
-    margin-left: 1rem;
     background: transparent;
 }
 
 .row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
     margin-bottom: 1rem;
+    padding: 4px 8px;
+    background-color: rgba(32, 178, 171, 0.3);
+    border-radius: 8px;
 }
 
 .row button {
@@ -98,9 +95,14 @@
     font-size: 14px;
 }
 
+.row div {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
 .settings__menu .selected {
-    background-color: rgba(0, 0, 0, 0.65);
-    color: #fff;
+    background-color: #dc143c;
+    box-shadow: 1px 1px 1px #222;
 }
 
 .actionBtn {
@@ -110,18 +112,20 @@
 }
 
 .actionBtn button {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
     border-radius: 8px;
     font-size: 12px;
     background:rgba(0, 0, 0, 0.65);
     color: #fff;
     letter-spacing: 2px;
+    border: 2px solid transparent;
+    transition: 0.15s;
 }
 
 .actionBtn button.clicked {
-    background-color: #40ff4e;
-    color: #073705;
-    font-weight: 500;
+    border-color: #0c0;
+    background-color: transparent;
+    color: #afa;
 }
 
 
@@ -130,8 +134,12 @@
 Media queries
 =========
 */
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .settings__menu {
-        width: 40%;
+        width: 450px;
+    }
+
+    .actionBtn button {
+         width: 200px;
     }
 }

@@ -1,11 +1,13 @@
 .weather__info {
     line-height: 1.6;
     padding: 2rem 1rem;
+    text-align: center;
 }
 
 .weather__info h1,
 .weather__info h2, 
 .weather__info h3 {
+    text-shadow: 1px 1px #222;
     font-weight: normal;
 }
 
@@ -14,6 +16,18 @@
     font-weight: 500;
     font-size: 22px;
     font-style: italic;
+    text-shadow: 1px 1px #222;
+}
+
+.weather__image img {
+    margin: auto;
+    box-shadow: 6px 4px 10px rgba(34, 34, 34, 0.24) inset;
+    border-radius: 50%;
+}
+
+.temperature {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 /* 
@@ -23,6 +37,11 @@ Media Queries
 */
 
 @media (min-width: 768px) {
+
+    .weather__info {
+        text-align: left;
+    }
+
     .info__container {
         display: flex;
         align-items: center;

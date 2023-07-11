@@ -31,7 +31,7 @@ const WeatherInfoContents = ({ data }) => {
                 </div>
 
                 <div>
-                    <h1>
+                    <h1 className={styles.temperature}>
                         {tempValue}&nbsp;
                         {`${units.temperature === 'celsius' ? '°C' : '°F'}`}
                     </h1>
