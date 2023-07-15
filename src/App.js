@@ -17,8 +17,8 @@ function App() {
         let settings = localStorage.getItem('userSettings');
         settings = settings ? JSON.parse(settings) : {
             temperature: 'celsius',
-            wind: 'km/hr',
-            visibility: 'km',
+            wind: 'm/s',
+            visibility: 'm',
             pressure: 'mb'
         };
         return settings;
