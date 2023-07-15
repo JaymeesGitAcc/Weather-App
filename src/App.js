@@ -4,9 +4,11 @@ import SettingsMenu from "./components/SettingsMenu";
 import WeatherDisplay from "./components/WeatherDisplay";
 import UnitsContext from "./Contexts/UnitsContext.js";
 import Forecast from "./components/Forecast";
+import DefaultCity from "./Contexts/DefaultCityContext";
 
 function App() {
 
+    const [defaultCityname, setDefaultCityname] = useState('');
     const [units, setUnits] = useState(getLocalStorage());
     const [toggleMenu, setToggleMenu] = useState(false);
     const [coord, setCoord] = useState(null);
@@ -29,11 +31,14 @@ function App() {
             <SettingsMenu
                 toggleMenu={toggleMenu}
                 setToggleMenu={setToggleMenu}
-                setUnits={setUnits} 
+                setUnits={setUnits}
+                setDefaultCityname={setDefaultCityname}
             />
 
             <UnitsContext.Provider value={units}>
-                <WeatherDisplay setCoord={setCoord} />
+                <DefaultCity.Provider value={defaultCityname}>
+                    <WeatherDisplay setCoord={setCoord} />
+                </DefaultCity.Provider>
             </UnitsContext.Provider>
 
             <Forecast coord={coord} />

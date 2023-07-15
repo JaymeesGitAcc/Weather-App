@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../css_modules/SettingsMenu.module.css';
 
-const SettingsMenu = ({ toggleMenu, setToggleMenu, setUnits }) => {
+const SettingsMenu = ({ toggleMenu, setToggleMenu, setUnits, setDefaultCityname }) => {
 
     const [defaultCity, setDefaultCity] = useState('');
     const [saveTitle, setSaveTitle] = useState('Save Preferences');
@@ -39,8 +39,10 @@ const SettingsMenu = ({ toggleMenu, setToggleMenu, setUnits }) => {
     }
 
     function saveAsDefaultCity() {
-        if (defaultCity)
+        if (defaultCity) {
             localStorage.setItem('defaultCity', JSON.stringify(defaultCity));
+            setDefaultCityname(defaultCity);
+        }   
         setDefaultCity('');
     }
 

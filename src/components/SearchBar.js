@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '../css_modules/SearchBar.module.css';
+import DefaultCity from '../Contexts/DefaultCityContext';
 
 const SearchBar = ({ setCity }) => {
 
     const [inputValue, setInputValue] = useState('');
     const [inputAlert, setInputAlert] = useState(false);
+
+    const defaultCity = useContext(DefaultCity);
+
+    useEffect(() => {
+        if(defaultCity)
+            setCity(defaultCity);
+    }, [defaultCity, setCity]);
 
     function handleSubmit(e) {
         e.preventDefault();
