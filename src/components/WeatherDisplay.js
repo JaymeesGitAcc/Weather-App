@@ -3,22 +3,21 @@ import styles from '../css_modules/WeatherDisplay.module.css';
 import SearchBar from './SearchBar';
 import WeatherInfo from './WeatherInfo';
 import WeatherStats from './WeatherStats';
-import WeatherContext from '../WeatherContext';
+import WeatherContext from '../Contexts/WeatherContext.js';
 import Clock from './Clock';
 const spinner = require('../images/spinner.gif');
 
-const WeatherDisplay = () => {
+const WeatherDisplay = ({setCoord}) => {
 
+    const [weatherData, setWeatherData] = useState(null);
+    const [error, setError] = useState(false);
     const [city, setCity] = useState(() => {
         const defaultCity = localStorage.getItem('defaultCity')
             ? JSON.parse(localStorage.getItem('defaultCity'))
             : 'Gorakhpur';
         return defaultCity ? defaultCity : 'Gorakhpur';
     });
-
-    const [weatherData, setWeatherData] = useState(null);
-    const [error, setError] = useState(false);
-
+   
     useEffect(() => {
         const apiKey = '629cae91753c6dfa85aded52928beddb';
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -33,6 +32,7 @@ const WeatherDisplay = () => {
                 else {
                     const res = await data.json();
                     setWeatherData(res);
+                    setCoord(res.coord);
                     setError(false);
                 }
 
@@ -40,8 +40,8 @@ const WeatherDisplay = () => {
                 setError(true);
             }
         }
-        api(city);
-    }, [city]);
+        api();
+    }, [city, setCoord]);
 
 
     return <section className={styles.weather__display}>

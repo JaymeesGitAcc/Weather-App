@@ -1,0 +1,46 @@
+.forecast__section {
+    width: 98%;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.cards__container {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    padding: 1rem;
+}
+
+.forecast__card {
+    text-align: center;
+    background-color: #5761B2;
+    background: -webkit-linear-gradient(to bottom right, #5761B2, #1FC5A8); /* Safari 5.1-6, Chrome 10-25 */
+    background: -moz-linear-gradient(to bottom right, #5761B2, #1FC5A8); /* Firefox 3.6-15 */
+    background: -o-linear-gradient(to bottom right, #5761B2, #1FC5A8); /* Opera 11.1-12 */
+    background-image: linear-gradient(to bottom right, #5761B2, #1FC5A8);  
+    border-radius: 8px;
+    color: #fff;
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast__card img {
+    width: 45px;
+    height: 45px;
+    margin: auto;
+}
+
+.forecast__card .desc {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.weather__condition {
+    display: flex;
+    align-items: center;
+}

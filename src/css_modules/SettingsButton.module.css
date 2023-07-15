@@ -1,13 +1,14 @@
 .settings__btn {
-    position: fixed;
+    position: absolute;
     top: 0.5rem;
     right: 1rem;
     cursor: pointer;
     border: none;
-    z-index: 3;
+    background-color: transparent;
+    /* border: 2px solid rgba(0, 255, 255, 0.562); */
+    transition: 0.4s;
     width: 50px;
     height: 50px;
-    background-color: transparent;
 }
 
 .settings__btn .hambBtn {
@@ -18,7 +19,7 @@
     position: absolute;
     width: 34px;
     height: 4px;
-    background-color: #222;
+    background: #2f4f4f;
     left: 8px;
     transition: 0.4s;
     border-radius: 4px;
@@ -31,17 +32,4 @@
 .settings__btn .line3 {
     bottom: 11px;
     width: 18px;
-}
-
-.transform .line1 {
-    transform: rotate(-45deg) translate(-6px, 6px);
-}
-
-.transform .line2 {
-    background: transparent;
-}
-
-.transform .line3 {
-    width: 35px;
-    transform: rotate(45deg) translate(-7px, -8px);
 }

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import UnitsContext from "../UnitsContext";
+import UnitsContext from "../Contexts/UnitsContext.js";
 import styles from '../css_modules/WeatherStats.module.css';
 
 const AtmosphericConditions = ({ stats }) => {

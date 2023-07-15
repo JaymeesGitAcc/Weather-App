@@ -4,11 +4,16 @@ import styles from '../css_modules/SearchBar.module.css';
 const SearchBar = ({ setCity }) => {
 
     const [inputValue, setInputValue] = useState('');
+    const [inputAlert, setInputAlert] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (!inputValue) 
-            alert("Please enter a value");
+        if (!inputValue) {
+           setInputAlert(true);
+           setTimeout(()=>{
+                setInputAlert(false);
+           }, 1000);
+        }
         else 
             setCity(inputValue);
         setInputValue('');
@@ -16,7 +21,10 @@ const SearchBar = ({ setCity }) => {
 
     return (
         <div className={styles.search__bar}>
-            <form className={styles.search__form} onSubmit={handleSubmit}>
+            <div className={`${styles.noInputAlert} ${inputAlert ? styles.show : ''}`}>
+                <p>Please enter a value</p>
+            </div>
+            <form className={styles.search__form} onSubmit={handleSubmit} id='form'>
                 <input type="text"
                     placeholder="Enter city name"
                     onChange={e => setInputValue(e.target.value)}

@@ -9,11 +9,38 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: skyblue;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #5761B2;
+    background: -webkit-linear-gradient(to bottom right, #5761B2, #1FC5A8); /* Safari 5.1-6, Chrome 10-25 */
+    background: -moz-linear-gradient(to bottom right, #5761B2, #1FC5A8); /* Firefox 3.6-15 */
+    background: -o-linear-gradient(to bottom right, #5761B2, #1FC5A8); /* Opera 11.1-12 */
+    background-image: linear-gradient(to bottom right, #5761B2, #1FC5A8);  
+    border-radius: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
 body {
     letter-spacing: 2px;
     line-height: 1.6;
-    overflow-x: hidden;
     background-color: #ebe3e3;
+    /* background-image: url('./images/weather-bg-image.png');
+    background-size: cover; */
 }
 
 img {
@@ -29,6 +56,6 @@ img {
 }
 
 .loader img {
-   width: 40px;
-   height: 40px;
-}   
+    width: 40px;
+    height: 40px;
+}
