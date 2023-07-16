@@ -15,6 +15,22 @@
     background-image: linear-gradient(to bottom right, #5761B2, #1FC5A8);  
 }
 
+.error__message {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin: 4rem auto;
+}
+
+.error__message b {
+    color: darkslategrey;
+}
+
+/* 
+==================
+Media queries
+========
+*/
+
 @media (min-width: 600px) {
     .weather__display {
         padding: 2.5rem 4rem;

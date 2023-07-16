@@ -16,14 +16,15 @@ const Forecast = ({ coord }) => {
                 try {
                     const data = await fetch(url);
                     const response = await data.json();
-
                     setDailyForecast(response.list);
                     setError(false);
                 }
                 catch (error) {
-                    console.log(error.message);
                     setError(true);
                 }
+            }
+            else {
+                setError(true);
             }
         }
 
@@ -37,7 +38,7 @@ const Forecast = ({ coord }) => {
 
     return (!error &&
         <section className={styles.forecast__section}>
-            <h1 style={{textAlign: 'center', color: '#222'}}>Forecast Chart</h1>
+            <h1 className={styles.heading}>Forecast</h1>
 
             <div className={styles.cards__container}>
                 {

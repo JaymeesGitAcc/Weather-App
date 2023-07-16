@@ -7,7 +7,7 @@ import WeatherContext from '../Contexts/WeatherContext.js';
 import Clock from './Clock';
 const spinner = require('../images/spinner.gif');
 
-const WeatherDisplay = ({setCoord}) => {
+const WeatherDisplay = ({ setCoord }) => {
 
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState(false);
@@ -17,7 +17,7 @@ const WeatherDisplay = ({setCoord}) => {
             : 'Gorakhpur';
         return defaultCity ? defaultCity : 'Gorakhpur';
     });
-   
+
     useEffect(() => {
         const apiKey = '629cae91753c6dfa85aded52928beddb';
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -28,6 +28,7 @@ const WeatherDisplay = ({setCoord}) => {
 
                 if (!data.ok) {
                     setError(true);
+                    setCoord(null);
                 }
                 else {
                     const res = await data.json();
@@ -55,13 +56,17 @@ const WeatherDisplay = ({setCoord}) => {
                             <>
                                 <WeatherInfo />
                                 <WeatherStats />
-                            </> : 
+                            </> :
                             <div className='loader'>
                                 <img src={spinner} alt="spinner" />
                             </div>
                     }
                 </WeatherContext.Provider> :
-                <div className='error'>Weather info not available for the city <b>{city}</b></div>
+                <div className={styles.error__message}>
+                    Oops!!! Something went wrong. <br />
+                    Weather info not available for the city&nbsp; 
+                    <b>"{city}"</b>
+                </div>
         }
     </section>
 }

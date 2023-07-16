@@ -4,6 +4,21 @@
     margin: 2rem auto;
 }
 
+.heading {
+    text-align: center;
+    color: #072c52;
+}
+
+.heading::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 70px;
+    margin: auto;
+    background: #2b8ef1;
+    border-radius: 8px;
+}
+
 .cards__container {
     display: flex;
     gap: 10px;
